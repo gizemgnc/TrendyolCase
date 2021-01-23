@@ -17,8 +17,9 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public void addUser(@RequestBody User user){
+    public String addUser(@RequestBody User user){
         userManager.addUser(user);
+        return user.toString();
     }
 
     @PostMapping("/removeUser/{id}")

@@ -83,7 +83,18 @@ public class User {
         this.address = address;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", birthdate=" + birthdate +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
 
 }

@@ -16,8 +16,9 @@ public class UserDal implements IUserDal{
     private MongoTemplate mongoTemplate;
 
     @Override
-    public void addUser(User user) {
-        mongoTemplate.insert(user);
+    public String addUser(User user) {
+         mongoTemplate.insert(user);
+            return user.toString() ;
     }
 
     @Override

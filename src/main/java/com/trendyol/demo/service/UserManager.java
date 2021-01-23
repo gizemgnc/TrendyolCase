@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserManager implements IUserManager{
+public class UserManager implements IUserManager {
     private IUserDal userDal;
 
     @Autowired
@@ -15,12 +15,13 @@ public class UserManager implements IUserManager{
     }
 
     @Override
-    public void addUser(User user) {
-        SignUpValidityFacade signUpValidityFacade = new SignUpValidityFacade(user.getUserName(),user.getPassword());
-        if(signUpValidityFacade.checkValidity())
+    public String addUser(User user) {
+        SignUpValidityFacade signUpValidityFacade = new SignUpValidityFacade(user.getUserName(), user.getPassword());
+        if (signUpValidityFacade.checkValidity()) {
             userDal.addUser(user);
-        else
-            signUpValidityFacade.getErrorMessage();
+            return user.toString();
+        } else
+            return signUpValidityFacade.getErrorMessage().toString();
     }
 
     @Override
