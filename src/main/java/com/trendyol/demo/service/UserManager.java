@@ -16,7 +16,11 @@ public class UserManager implements IUserManager{
 
     @Override
     public void addUser(User user) {
-        userDal.addUser(user);
+        SignUpValidityFacade signUpValidityFacade = new SignUpValidityFacade(user.getUserName(),user.getPassword());
+        if(signUpValidityFacade.checkValidity())
+            userDal.addUser(user);
+        else
+            signUpValidityFacade.getErrorMessage();
     }
 
     @Override
