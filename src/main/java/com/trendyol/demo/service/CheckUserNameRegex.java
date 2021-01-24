@@ -9,7 +9,7 @@ public class CheckUserNameRegex extends UserNameChecker{
 
     @Override
     public boolean check(String userName) {
-        if(userName.matches("(?=.*[a-zA-Z0-9.\\-_]).+$")) return true;
+        if(userName.matches("^(?=.[0-9])(?=.[a-z])(?=.[A-Z])$")) return true;
         setErrorMessage();
         return false;
     }
