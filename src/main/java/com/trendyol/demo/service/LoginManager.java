@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class LoginManager implements ILoginManager {
     private ILoginDal loginDal;
     private User user;
-    private Response response;
+    private Response response = new Response();
 
     @Autowired
     public LoginManager(ILoginDal loginDal) {
@@ -19,13 +19,17 @@ public class LoginManager implements ILoginManager {
     }
 
     @Override
-    public User findUserByUserName(String userName) {
-        user = loginDal.findUserByUserName(userName);
-        return user;
+    public Response findUserByUserName(String userName) {
+        try {
+            user = loginDal.findUserByUserName(userName);
+        } catch (Exception e) {
+            response.setReturnCode(0);
+            response.setReturnMessage("Giriş başarısız. Username hatalı.");
+        }
+        return response;
     }
 
     public Response checkValidty(Login login) {
-        response = new Response();
         if (user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
             response.setReturnCode(1);
             response.setReturnMessage("Giriş başarılı.");

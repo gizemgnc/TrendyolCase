@@ -13,9 +13,9 @@ public class LoginDal implements ILoginDal {
     MongoTemplate mongoTemplate;
 
     @Override
-    public User findUserByUserName(String userName) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("userName").is(userName));
-        return mongoTemplate.findOne(query, User.class);
+    public User findUserByUserName(String userName) throws Exception {
+            Query query = new Query();
+            query.addCriteria(Criteria.where("userName").is(userName));
+            return mongoTemplate.findOne(query, User.class);
     }
 }
