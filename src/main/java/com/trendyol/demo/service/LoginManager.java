@@ -1,5 +1,6 @@
 package com.trendyol.demo.service;
 
+import com.trendyol.demo.models.Login;
 import com.trendyol.demo.models.User;
 import com.trendyol.demo.repository.ILoginDal;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class LoginManager implements ILoginManager {
         return user;
     }
 
-    public boolean checkValidty(String userName, String password) {
-        if (user.getUserName().equals(userName) && user.getPassword().equals(password))
+    public boolean checkValidty(Login login) {
+        if (user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword()))
             return true;
         return false;
     }
