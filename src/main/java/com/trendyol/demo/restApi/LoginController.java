@@ -17,7 +17,7 @@ public class LoginController {
         this.loginManager = loginManager;
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public boolean checkValidtyLogin(@RequestBody String userName,String password) {
         loginManager.findUserByUserName(userName);
         return loginManager.checkValidty(userName,password);
