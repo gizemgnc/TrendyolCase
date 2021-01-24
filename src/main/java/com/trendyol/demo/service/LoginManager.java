@@ -25,6 +25,7 @@ public class LoginManager implements ILoginManager {
     }
 
     public Response checkValidty(Login login) {
+        response = new Response();
         if (user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
             response.setReturnCode(1);
             response.setReturnMessage("Giriş başarılı.");
