@@ -1,6 +1,7 @@
 package com.trendyol.demo.restApi;
 
 import com.trendyol.demo.models.Login;
+import com.trendyol.demo.models.Response;
 import com.trendyol.demo.service.ILoginManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public boolean checkValidtyLogin(@RequestBody Login login)  {
+    public Response checkValidtyLogin(@RequestBody Login login)  {
         loginManager.findUserByUserName(login.getUserName());
         return loginManager.checkValidty(login);
     }
