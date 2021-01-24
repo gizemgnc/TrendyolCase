@@ -3,7 +3,6 @@ package com.trendyol.demo.service;
 public class CheckUserNameLength extends UserNameChecker {
 
     public CheckUserNameLength(UserNameCheckerManager userNameCheckerManager) {
-        super(userNameCheckerManager);
         userNameCheckerManager.addChecker(this);
     }
 

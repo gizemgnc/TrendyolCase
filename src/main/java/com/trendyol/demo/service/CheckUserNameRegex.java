@@ -3,7 +3,6 @@ package com.trendyol.demo.service;
 public class CheckUserNameRegex extends UserNameChecker{
 
     public CheckUserNameRegex(UserNameCheckerManager userNameCheckerManager) {
-        super(userNameCheckerManager);
         userNameCheckerManager.addChecker(this);
     }
 

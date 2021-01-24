@@ -3,7 +3,6 @@ package com.trendyol.demo.service;
 public class CheckIsIncludeDigit extends PasswordChecker {
 
     public CheckIsIncludeDigit(PasswordCheckerManager passwordCheckerManager) {
-        super(passwordCheckerManager);
         passwordCheckerManager.addChecker(this);
     }
 

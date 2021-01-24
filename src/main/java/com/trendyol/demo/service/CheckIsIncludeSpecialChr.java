@@ -3,7 +3,6 @@ package com.trendyol.demo.service;
 public class CheckIsIncludeSpecialChr extends PasswordChecker {
 
     public CheckIsIncludeSpecialChr(PasswordCheckerManager passwordCheckerManager) {
-        super(passwordCheckerManager);
         passwordCheckerManager.addChecker(this);
     }
 
