@@ -30,7 +30,7 @@ public class LoginManager implements ILoginManager {
     }
 
     public Response checkValidty(Login login) {
-        if (user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
+        if (!user.getUserName().isEmpty() && user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
             response.setReturnCode(1);
             response.setReturnMessage("Giriş başarılı.");
         } else {

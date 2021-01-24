@@ -1,6 +1,8 @@
 package com.trendyol.demo;
 
+import com.trendyol.demo.models.Login;
 import com.trendyol.demo.models.User;
+import com.trendyol.demo.restApi.LoginController;
 import com.trendyol.demo.restApi.UserController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +14,15 @@ import java.util.Date;
 class TrendyolApplicationTests {
 
 	@Autowired
-	private UserController userController;
+	private LoginController loginController;
 
 	@Test
 	void contextLoads() {
-		User user = new User(15,"Happyy","master","denem123","deneme123",new Date(2020,10,10),"asdasd");
-		userController.addUser(user);
+		Login login = new Login();
+		login.setUserName("alis5");
+		login.setPassword("waffle34.");
+
+		loginController.checkValidtyLogin(login);
 	}
 
 }
