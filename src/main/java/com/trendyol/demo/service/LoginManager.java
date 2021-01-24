@@ -19,18 +19,15 @@ public class LoginManager implements ILoginManager {
     }
 
     @Override
-    public Response findUserByUserName(String userName) {
-        try {
+    public Response findUserByUserName(String userName) throws Exception{
+
             user = loginDal.findUserByUserName(userName);
-        } catch (Exception e) {
-            response.setReturnCode(0);
-            response.setReturnMessage("Giriş başarısız. Username hatalı.");
-        }
+
         return response;
     }
 
     public Response checkValidty(Login login) {
-        if (!user.getUserName().isEmpty() && user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
+        if (user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
             response.setReturnCode(1);
             response.setReturnMessage("Giriş başarılı.");
         } else {

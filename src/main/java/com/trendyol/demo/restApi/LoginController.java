@@ -19,7 +19,14 @@ public class LoginController {
 
     @PostMapping("/login")
     public Response checkValidtyLogin(@RequestBody Login login)  {
-        loginManager.findUserByUserName(login.getUserName());
-        return loginManager.checkValidty(login);
+        Response response = new Response();
+        try {
+            loginManager.findUserByUserName(login.getUserName());
+            return loginManager.checkValidty(login);
+        }catch (Exception e){
+            response.setReturnCode(0);
+            response.setReturnMessage("Giriş başarısız. Username/Password hatalı.");
+            return response;
+        }
     }
 }
